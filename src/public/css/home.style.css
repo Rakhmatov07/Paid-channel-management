@@ -1,0 +1,24 @@
+.jumbotron {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../images/header.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .jumbotron-fluid {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+  .mb-5,
+  .my-5 {
+    margin-bottom: 3rem !important;
+  }
+
+.containerr {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
