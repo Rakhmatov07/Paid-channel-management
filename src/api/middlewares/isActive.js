@@ -3,13 +3,11 @@ const { fetchOne } = require("../../libs/pg");
 const isActive = async(req, res, next) => {
     try {
         const user_id = req.user;
-        const channel_id = req.params;
+        const {channel_id} = req.params;
 
-        const isOwner = await fetchOne("SELECT * FROM channel_user WHERE status='owner';");
-        if(isOwner) return next();
-        
         const channelUserInfo = await fetchOne("SELECT * FROM channel_user WHERE user_id=$1 AND channel_id=$2;", user_id, channel_id);
         if(!channelUserInfo) return res.status(403).json({msg: 'You have to pay to join the channel'}); // res.redirect(/api/payment)
+        if(channelUserInfo.status === 'owner') return next();
 
         const differenceInMilliseconds = new Date(channelUserInfo.end_date_of_subscribtion).getTime() - Date.now();
         if(differenceInMilliseconds < 0) {
