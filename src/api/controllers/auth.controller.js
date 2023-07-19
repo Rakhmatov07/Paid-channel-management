@@ -1,6 +1,6 @@
 const {fetchOne} = require('../../libs/pg');
 const {getToken, verifyToken} = require('../../libs/jwt');
-const { validateRegistration, validatelogin } = require('../../libs/auth.validation');
+const { validateRegistration, validatelogin } = require('../../libs/validation/auth.validation');
 
 async function register(req, res) {
     try {
