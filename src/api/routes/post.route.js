@@ -1,6 +1,8 @@
 const router = require('express').Router();
+const { createPost, updatePost, getPosts, deletePost } = require('../controllers/post.controller');
 const isActive = require('../middlewares/isActive');
 const isAuth = require('../middlewares/isAuth');
+const isOwner = require('../middlewares/isOwner');
 
 
 router.post('/post/:channel_id', isAuth, isOwner, createPost);

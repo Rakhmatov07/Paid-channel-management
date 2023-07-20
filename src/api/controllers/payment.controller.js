@@ -23,10 +23,12 @@ const payForChannel = async(req, res) => {
         } catch (error) {
             console.log(error);
             await fetch('ROLLBACK');
+            return res.status(500).json({msg: 'Internal Server Error'});
         }
     } catch (error) {
         console.log(error);
         fetch('ROLLBACK');
+        return res.status(500).json({msg: 'Internal Server Error'});
     }
 };
 

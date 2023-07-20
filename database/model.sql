@@ -40,6 +40,18 @@ CREATE TABLE cards(
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
+CREATE TABLE posts(
+    post_id SERIAL NOT NULL PRIMARY KEY,
+    title VARCHAR(64),
+    text TEXT NOT NULL,
+    user_id INT NOT NULL,
+    channel_id INT NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES users(user_id),
+    FOREIGN KEY(channel_id) REFERENCES channels(channel_id) ON DELETE CASCADE,
+    createdAt TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+
+
 
 
 

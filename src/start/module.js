@@ -10,8 +10,6 @@ const modules = (app) => {
     app.use(cookieParser());
     app.use(express.urlencoded({extended: true}));
     app.use(express.static(process.cwd() + '/src/public'));
-    // app.use(fileUpload());
-    // app.use(express.static(`${process.cwd()}/uploads`));
     app.use('/api', router);
 
     app.set('view engine', 'ejs');
